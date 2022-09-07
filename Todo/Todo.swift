@@ -11,5 +11,5 @@ import RealmSwift
 class Todo: Object {
     @objc dynamic var todo: String = ""
     @objc dynamic var content: String = ""
-    
+    @objc dynamic var date: Date = Date()
 }
