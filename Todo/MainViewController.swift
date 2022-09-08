@@ -71,14 +71,19 @@ class MainViewController: UIViewController {
                    realm.add(todo)
                }
         
-        self.navigationController?.popToRootViewController(animated: true)
+        let alert: UIAlertController = UIAlertController(title: "成功", message: "保存しました", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            print("OK")
+            self.navigationController?.popToRootViewController(animated: true)
+
+        }
+            ))
+        present(alert, animated: true, completion: nil)
 
                
 
         
-        let alert: UIAlertController = UIAlertController(title: "成功", message: "保存しました", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+      
     }
     
 }

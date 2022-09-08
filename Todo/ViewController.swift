@@ -31,6 +31,10 @@ class ViewController: UIViewController {
         print("\(result)これ")
 
     }
+    
+//    @IBAction func editButton() {
+//
+//    }
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -53,6 +57,55 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
                return cell
     }
     
+    
+      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+          switch editingStyle {
+          case .delete:
+              data.remove(at: indexPath.row)
+              let target = realm.objects(Todo.self)[indexPath.row]
+              // ③ 部署を更新する
+              do{
+                try realm.write{
+                  realm.delete(target)
+                    print("消えたよ")
+                    print("\(realm.objects(Todo.self))これ")
+                }
+              }catch {
+                print("Error \(error)")
+              }
+              
+              table.beginUpdates()
+              table.deleteRows(at: [indexPath], with: .automatic)
+              table.endUpdates()
+          case .insert, .none:
+              // NOP
+              break
+          }
+          
+//          func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//                  let action = UIContextualAction(style: .destructive,
+//                                                  title: "消すで！") { (action, view, completionHandler) in
+//                      self.showAlert(deleteIndexPath: indexPath)
+//                      completionHandler(true)
+//                  }
+//                  action.backgroundColor = .orange
+//                  let configuration = UISwipeActionsConfiguration(actions: [action])
+//                  return configuration
+//              }
+//
+//              func showAlert(deleteIndexPath indexPath: IndexPath) {
+//                  let dialog = UIAlertController(title: "セル消すで！",
+//                                                 message: "ほんまに消してええんか？",
+//                                                 preferredStyle: .alert)
+//                  dialog.addAction(UIAlertAction(title: "消す", style: .default, handler: { (_) in
+//                      self.array.remove(at: indexPath.row)
+//                      self.tableView.deleteRows(at: [indexPath], with: .automatic)
+//                  }))
+//                  dialog.addAction(UIAlertAction(title: "嫌や", style: .cancel, handler: nil))
+//                  self.present(dialog, animated: true, completion: nil)
+//              }
+    
+      }
 //    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 //
 //          let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
