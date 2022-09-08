@@ -87,10 +87,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6VM-Ar-nwo">
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="6VM-Ar-nwo">
                                 <rect key="frame" x="0.0" y="530" width="390" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cmt-6S-zVM">
+                                <rect key="frame" x="147" y="448" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MdO-U8-27Z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -104,7 +110,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contentTextView" destination="z4T-Xo-WkX" id="wJw-Kn-1L4"/>
-                        <outlet property="datePicker" destination="6VM-Ar-nwo" id="jIK-qQ-FAs"/>
+                        <outlet property="dateTextField" destination="Cmt-6S-zVM" id="sqn-8t-RGs"/>
                         <outlet property="todoTextField" destination="xGp-FQ-vRg" id="wSk-Yg-vAO"/>
                     </connections>
                 </viewController>
