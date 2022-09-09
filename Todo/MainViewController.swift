@@ -52,7 +52,7 @@ class MainViewController: UIViewController {
     
     @objc func done() {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy年 M月d日"
+        formatter.dateFormat = "yyyy/M/d"
         dateTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }

@@ -63,7 +63,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
           case .delete:
               data.remove(at: indexPath.row)
               let target = realm.objects(Todo.self)[indexPath.row]
-              // ③ 部署を更新する
               do{
                 try realm.write{
                   realm.delete(target)
